@@ -5,12 +5,12 @@ terraform {
       version = "~> 5.0"
     }
   }
-  backend "s3" {
-    bucket = "terraformjenk"
-    key    = "vpc"
-    region = "us-east-1"
-    dynamodb_table = "daws76s-locking-dev"
-  }
+  # backend "s3" {
+  #   bucket = "terraformjenk"
+  #   key    = "vpc"
+  #   region = "us-east-1"
+  #   dynamodb_table = "daws76s-locking-dev"
+  # }
 }
 
 # Configure the AWS Provider
