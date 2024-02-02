@@ -31,7 +31,7 @@ pipeline {
             steps {
                 //
                 sh """
-                    cd 01-vpc
+                    cd roboshop-infra-dev/01-vpc
                     terraform init -reconfigure
                 """
             }
@@ -40,7 +40,7 @@ pipeline {
             steps {
                 //
                 sh """
-                    cd 01-vpc
+                    cd roboshop-infra-dev/01-vpc
                     terraform plan
                 """
                 
@@ -63,7 +63,7 @@ pipeline {
             }
             steps {
                 sh """
-                    cd 01-vpc
+                    cd roboshop-infra-dev/01-vpc
                     terraform apply -auto-approve
 
                  """
@@ -87,7 +87,7 @@ pipeline {
             }
             steps {
                 sh """
-                    cd 01-vpc
+                    cd roboshop-infra-dev/01-vpc
                     terraform destroy -auto-approve
 
                  """
