@@ -9,6 +9,7 @@ pipeline {
         GREETING = 'Hello Jenkins practice'
     }
     options {
+            ansiColor('xterm')
         //timeout(time: 1, unit: 'HOURS') 
         //disableConcurrentBuilds()
     }
