@@ -17,8 +17,8 @@
 
   - name: create rabbitmq user 
     ansible.builtin.command: 
-      user: "{{lookup('aws_sms','/roboshop/{{env}}/rabbitmq_user',region='us-east-1',decrypt=True)}}"
-      password: "{{lookup('aws_sms','/roboshop/{{env}}/rabbitmq_password',region='us-east-1',decrypt=True)}}"
+      user: "{{ lookup('aws_ssm', '/roboshop/{{env}}/rabbitmq_user', region='us-east-1', decrypt=True ) }}"
+      password: "{{ lookup('aws_ssm', '/roboshop/{{env}}/rabbitmq_password', region='us-east-1', decrypt=True ) }}"
       vhost: /
       configure_priv: .* 
       read_priv:
