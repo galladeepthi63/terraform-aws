@@ -20,6 +20,13 @@ resource "aws_vpc_peering_connection" "peering" {
   
 # }
 
+resource "aws_route" "acceptor_route" {
+  count = var.is_peering_required && var.acceptor_vpc_id == "" ? 1 : 0
+  route_table_id            = data.aws_route_table.rts.id
+  destination_cidr_block    = var.vpc_cidr
+  vpc_peering_connection_id = aws_vpc_peering_connection.peering[0].id
+}
+
 resource "aws_route" "public_peering" {
   count = var.is_peering_required && var.acceptor_vpc_id == "" ? 1 : 0
   route_table_id            = aws_route_table.public.id

@@ -10,7 +10,7 @@ data "aws_vpc" "default" {
   
 }
 
-data "aws_route_tables" "rts" {
+data "aws_route_table" "rts" {
   vpc_id = data.aws_vpc.default.id
 
   filter {
